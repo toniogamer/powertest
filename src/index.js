@@ -57,16 +57,10 @@ const powerInfoCache = new Map();
 async function getData() {  
     try {
         console.log(`  -> Consultando API Link '${POWER_URL_BASE}'...`);
-        const response = await axios.get(`${POWER_URL_BASE}`);
-        
-        console.log(response.data).data
-        if (response.data) {
-            powerInfoCache.set(powerName, response.data);
-            return response.data;
-        }
+        const response = await axios.get(`${POWER_URL_BASE}`);        
         return null;
     } catch (error) {
-        console.error(`  -> ERROR al obtener datos de API de terceros para '${powerName}':`, error.message);
+        console.error(`  -> ERROR al obtener datos de API PRINCIPAL'${POWER_URL_BASE}':`, error.message);
         return null;
     }
 }
