@@ -4,8 +4,14 @@ const cron = require('node-cron');
 const admin = require('firebase-admin');
 const axios = require('axios');
 
-        const response = await axios.get(`${POWER_API_TERCERO}${powerName}`);
-console.log(response);
+
+
+
+
+
+
+
+
 // --- CONFIGURACIÓN DE FIREBASE ---
 try {
     let serviceAccount;
@@ -52,21 +58,19 @@ const powerInfoCache = new Map();
 
 
 
-
 // --- LÓGICA DE DATOS API ---
 async function getData() {  
     try {
-        console.log(`  -> Consultando API Link '${POWER_URL_BASE}'...`);
-        const response = await axios.get(`${POWER_URL_BASE}`);        
-        return null;
+        console.log(`  -> Consultando API Link https://xat.com/json/abxcount.php?c=1757758496`);
+        const response = await axios.get(`https://xat.com/json/abxcount.php?c=1757758496`);        
+        return response;
     } catch (error) {
-        console.error(`  -> ERROR al obtener datos de API PRINCIPAL'${POWER_URL_BASE}':`, error.message);
+        console.error(`  -> ERROR al obtener datos de API PRINCIPAL'https://xat.com/json/abxcount.php?c=1757758496':`, error.message);
         return null;
     }
 }
 
 getData();
-
 
 
 
