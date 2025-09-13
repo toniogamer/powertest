@@ -48,7 +48,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Establecer la ruta del ejecutable de Chrome para Puppeteer
-ENV PUPPETEER_EXECUTABLE_PATH="/usr/bin/google-chrome"
+ENV PUPPETEER_EXECUTABLE_PATH="/opt/render/.cache/puppeteer"
 
 # Copiar los archivos de dependencias
 COPY package*.json ./
