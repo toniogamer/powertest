@@ -11,7 +11,7 @@ const axios = require('axios');
 
 
 
-
+/*
 // --- CONFIGURACIÓN DE FIREBASE ---
 try {
     let serviceAccount;
@@ -57,7 +57,7 @@ const powerInfoCache = new Map();
 
 
 
-
+*/
 // --- LÓGICA DE DATOS API ---
 async function getData() {  
     try {
@@ -85,7 +85,7 @@ getData();
 
 
 
-
+/*
 
 
 // --- LÓGICA DE DATOS EXTERNOS ---
@@ -197,3 +197,4 @@ async function verificarTiemposRestantes(evento) {
 console.log('Iniciando ciclo de verificación cada minuto...');
 cron.schedule('* * * * *', verificarUrl);
 verificarUrl(); // Ejecutar una vez al inicio
+*/
