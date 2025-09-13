@@ -4,6 +4,8 @@ const cron = require('node-cron');
 const admin = require('firebase-admin');
 const axios = require('axios');
 
+        const response = await axios.get(`${POWER_API_TERCERO}${powerName}`);
+console.log(response);
 // --- CONFIGURACIÓN DE FIREBASE ---
 try {
     let serviceAccount;
