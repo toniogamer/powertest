@@ -11,7 +11,7 @@ const axios = require('axios');
 
 
 
-/*
+
 // --- CONFIGURACIÓN DE FIREBASE ---
 try {
     let serviceAccount;
@@ -57,35 +57,10 @@ const powerInfoCache = new Map();
 
 
 
-*/
-// --- LÓGICA DE DATOS API ---
-async function getData() {  
-    try {
-        console.log(`  -> Consultando API Link https://xat.com/json/abxcount.php?c=1757758496`);
-        const response = await axios.get(`https://xat.com/json/abxcount.php?c=1757758496`);        
-        console.log(response)
-        return response;
-    } catch (error) {
-        console.error(`  -> ERROR al obtener datos de API PRINCIPAL'https://xat.com/json/abxcount.php?c=1757758496':`, error.message);
-        return null;
-    }
-}
-
-getData();
 
 
 
 
-
-
-
-
-
-
-
-
-
-/*
 
 
 // --- LÓGICA DE DATOS EXTERNOS ---
@@ -192,9 +167,8 @@ async function verificarTiemposRestantes(evento) {
         }
     }
 }
-// getPowerInfo(666);
+getPowerInfo(666);
 // --- INICIO DEL SCRIPT ---
 console.log('Iniciando ciclo de verificación cada minuto...');
 cron.schedule('* * * * *', verificarUrl);
 verificarUrl(); // Ejecutar una vez al inicio
-*/
