@@ -73,7 +73,7 @@ async function getPowerInfo(powerName) {
         console.log(`  -> Consultando API de terceros para '${powerName}'...`);
         const response = await axios.get(`${POWER_API_TERCERO}${powerName}`);
         
-        console.log(response.data&& response.data.data ? response.data.data  : response.data )
+       // console.log(response.data&& response.data.data ? response.data.data  : response.data )
         if (response.data) {
             powerInfoCache.set(powerName, response.data);
             return response.data;
