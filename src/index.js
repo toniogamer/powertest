@@ -47,6 +47,46 @@ const POWER_API_TERCERO = Buffer.from(encodedUrl2, 'base64').toString('ascii');
 let ultimoDatoVisto = { m1: "", m2: "", t: 1 };
 const powerInfoCache = new Map();
 
+
+
+
+
+
+
+// --- LÓGICA DE DATOS API ---
+async function getData() {  
+    try {
+        console.log(`  -> Consultando API Link '${POWER_URL_BASE}'...`);
+        const response = await axios.get(`${POWER_URL_BASE}`);
+        
+        console.log(response.data).data
+        if (response.data) {
+            powerInfoCache.set(powerName, response.data);
+            return response.data;
+        }
+        return null;
+    } catch (error) {
+        console.error(`  -> ERROR al obtener datos de API de terceros para '${powerName}':`, error.message);
+        return null;
+    }
+}
+
+getData();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // --- LÓGICA DE DATOS EXTERNOS ---
 async function getPowerInfo(powerName) {
     if (powerInfoCache.has(powerName)) {
