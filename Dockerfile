@@ -2,6 +2,7 @@
 FROM node:18-slim
 
 # Instalar las dependencias de sistema necesarias para que Chrome funcione
+# y el propio Google Chrome
 RUN apt-get update && apt-get install -y \
     ca-certificates \
     fonts-liberation \
@@ -40,10 +41,14 @@ RUN apt-get update && apt-get install -y \
     lsb-release \
     wget \
     xdg-utils \
+    google-chrome-stable \
     --no-install-recommends
 
 # Establecer el directorio de trabajo
 WORKDIR /app
+
+# Establecer la ruta del ejecutable de Chrome para Puppeteer
+ENV PUPPETEER_EXECUTABLE_PATH="/usr/bin/google-chrome"
 
 # Copiar los archivos de dependencias
 COPY package*.json ./
