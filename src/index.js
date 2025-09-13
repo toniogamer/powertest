@@ -63,6 +63,7 @@ async function getData() {
     try {
         console.log(`  -> Consultando API Link https://xat.com/json/abxcount.php?c=1757758496`);
         const response = await axios.get(`https://xat.com/json/abxcount.php?c=1757758496`);        
+        console.log(response)
         return response;
     } catch (error) {
         console.error(`  -> ERROR al obtener datos de API PRINCIPAL'https://xat.com/json/abxcount.php?c=1757758496':`, error.message);
@@ -71,6 +72,8 @@ async function getData() {
 }
 
 getData();
+
+
 
 
 
