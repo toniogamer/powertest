@@ -8,10 +8,6 @@ const axios = require('axios');
 
 
 
-
-
-
-
 // --- CONFIGURACIÓN DE FIREBASE ---
 try {
     let serviceAccount;
@@ -58,11 +54,6 @@ const powerInfoCache = new Map();
 
 
 
-
-
-
-
-
 // --- LÓGICA DE DATOS EXTERNOS ---
 async function getPowerInfo(powerName) {
     if (powerInfoCache.has(powerName)) {
@@ -73,7 +64,6 @@ async function getPowerInfo(powerName) {
         console.log(`  -> Consultando API de terceros para '${powerName}'...`);
         const response = await axios.get(`${POWER_API_TERCERO}${powerName}`);
         
-       // console.log(response.data&& response.data.data ? response.data.data  : response.data )
         if (response.data) {
             powerInfoCache.set(powerName, response.data);
             return response.data;
@@ -167,7 +157,7 @@ async function verificarTiemposRestantes(evento) {
         }
     }
 }
-getPowerInfo(666);
+// getPowerInfo(666);
 // --- INICIO DEL SCRIPT ---
 console.log('Iniciando ciclo de verificación cada minuto...');
 cron.schedule('* * * * *', verificarUrl);
